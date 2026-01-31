@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
     FileText,
@@ -16,6 +17,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 
 const DashboardPage = () => {
     const { user } = useAuthStore();
+    const navigate = useNavigate();
     const [stats, setStats] = useState({
         totalReports: 0,
         resolvedIssues: 0,
@@ -174,7 +176,10 @@ const DashboardPage = () => {
                     >
                         <h3 className="text-lg md:text-xl font-bold mb-4">Quick Actions</h3>
                         <div className="space-y-3">
-                            <button className="w-full flex items-center gap-3 p-3 md:p-4 bg-gradient-to-r from-primary-50 to-primary-100 rounded-xl hover:shadow-md transition-all group">
+                            <button
+                                onClick={() => navigate('/report')}
+                                className="w-full flex items-center gap-3 p-3 md:p-4 bg-gradient-to-r from-primary-50 to-primary-100 rounded-xl hover:shadow-md transition-all group"
+                            >
                                 <div className="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center group-hover:scale-110 transition-transform">
                                     <FileText className="w-5 h-5 text-white" />
                                 </div>
@@ -184,7 +189,10 @@ const DashboardPage = () => {
                                 </div>
                             </button>
 
-                            <button className="w-full flex items-center gap-3 p-3 md:p-4 bg-gradient-to-r from-green-50 to-green-100 rounded-xl hover:shadow-md transition-all group">
+                            <button
+                                onClick={() => navigate('/report')}
+                                className="w-full flex items-center gap-3 p-3 md:p-4 bg-gradient-to-r from-green-50 to-green-100 rounded-xl hover:shadow-md transition-all group"
+                            >
                                 <div className="w-10 h-10 rounded-lg bg-green-600 flex items-center justify-center group-hover:scale-110 transition-transform">
                                     <MapPin className="w-5 h-5 text-white" />
                                 </div>
@@ -194,7 +202,10 @@ const DashboardPage = () => {
                                 </div>
                             </button>
 
-                            <button className="w-full flex items-center gap-3 p-3 md:p-4 bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl hover:shadow-md transition-all group">
+                            <button
+                                onClick={() => navigate('/profile')}
+                                className="w-full flex items-center gap-3 p-3 md:p-4 bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl hover:shadow-md transition-all group"
+                            >
                                 <div className="w-10 h-10 rounded-lg bg-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform">
                                     <Award className="w-5 h-5 text-white" />
                                 </div>

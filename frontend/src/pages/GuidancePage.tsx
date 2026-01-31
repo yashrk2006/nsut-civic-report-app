@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import { motion } from 'framer-motion';
 import { CheckCircle, Phone, Smartphone, Clock, HelpCircle, Shield } from 'lucide-react';
 
 const AppointmentsPage = () => {
+    const navigate = useNavigate();
     return (
         <Layout>
             <div className="max-w-3xl mx-auto">
@@ -145,10 +147,16 @@ const AppointmentsPage = () => {
 
                     {/* Action Buttons */}
                     <div className="grid gap-3">
-                        <button className="btn-primary w-full py-4 text-lg">
+                        <button
+                            onClick={() => navigate('/my-complaints')}
+                            className="w-full py-4 text-lg bg-primary-600 text-white rounded-xl font-bold shadow-lg shadow-primary-200 hover:bg-primary-700 transition-all"
+                        >
                             Track This Issue
                         </button>
-                        <button className="btn-outline w-full py-4 text-lg">
+                        <button
+                            onClick={() => navigate('/report')}
+                            className="w-full py-4 text-lg bg-white text-primary-600 border-2 border-primary-600 rounded-xl font-bold hover:bg-primary-50 transition-all"
+                        >
                             Report Another Issue
                         </button>
                     </div>

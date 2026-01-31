@@ -4,7 +4,7 @@ import { Toaster } from 'react-hot-toast';
 // Pages
 import DashboardPage from './pages/DashboardPage';
 import ReportPage from './pages/ReportPage';
-import GuidancePage from './pages/AppointmentsPage';
+import GuidancePage from './pages/GuidancePage';
 import MyComplaintsPage from './pages/MedicinesPage';
 import ProfilePage from './pages/ProfilePage';
 
