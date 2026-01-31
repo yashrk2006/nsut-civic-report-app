@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import mongoose from 'mongoose';
 
 dotenv.config();
 
@@ -12,12 +11,22 @@ const PORT = process.env.PORT || 5001;
 app.use(cors());
 app.use(express.json());
 
-// Basic Route
+// In-memory store for demo purposes (resets on server restart)
+const mockReports: any[] = [
+    {
+        id: 'DEMO-123',
+        category: 'waste',
+        status: 'pending',
+        location: { latitude: 28.6139, longitude: 77.2090 },
+        timestamp: new Date().toISOString()
+    }
+];
+
+// Routes
 app.get('/', (req, res) => {
-    res.json({ message: 'Delhi Civic Assistant API is running 🚀' });
+    res.json({ message: 'Delhi Civic Assistant API is running 🚀 (Mock Mode)' });
 });
 
-// Test Route
 app.get('/api/test', (req, res) => {
     res.json({
         status: 'success',
@@ -26,14 +35,31 @@ app.get('/api/test', (req, res) => {
     });
 });
 
-// Connect to MongoDB
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/delhi-civic-app';
+// Mock Report Submission
+app.post('/api/reports', (req, res) => {
+    const report = {
+        id: `R-${Math.floor(Math.random() * 10000)}`,
+        ...req.body,
+        status: 'pending',
+        timestamp: new Date().toISOString()
+    };
+    mockReports.push(report);
+    console.log('New Report Received:', report);
 
-if (process.env.NODE_ENV !== 'test') {
-    mongoose.connect(MONGODB_URI)
-        .then(() => console.log('✅ Connected to MongoDB'))
-        .catch(err => console.error('❌ MongoDB connection error:', err));
-}
+    // Simulate processing delay
+    setTimeout(() => {
+        res.status(201).json({
+            success: true,
+            message: 'Report submitted successfully',
+            report
+        });
+    }, 1000);
+});
+
+// Get Reports
+app.get('/api/reports', (req, res) => {
+    res.json({ success: true, count: mockReports.length, reports: mockReports });
+});
 
 // Start Server (Only if not in Vercel environment)
 if (process.env.NODE_ENV !== 'production') {
