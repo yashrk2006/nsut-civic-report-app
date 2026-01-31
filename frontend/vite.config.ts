@@ -5,28 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
     plugins: [
         react(),
-        VitePWA({
-            registerType: 'autoUpdate',
-            includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
-            manifest: {
-                name: 'Civic Sustainability Assistant',
-                short_name: 'Civic Delhi',
-                description: 'Report civic issues and help make Delhi sustainable',
-                theme_color: '#2E7D32',
-                icons: [
-                    {
-                        src: 'pwa-192x192.png',
-                        sizes: '192x192',
-                        type: 'image/png'
-                    },
-                    {
-                        src: 'pwa-512x512.png',
-                        sizes: '512x512',
-                        type: 'image/png'
-                    }
-                ]
-            }
-        })
+        // VitePWA({...}) - Temporarily disabled for Vercel debugging
     ],
     server: {
         port: 5000
