@@ -25,7 +25,7 @@ const DashboardPage = () => {
         civicPoints: 0
     });
 
-    const [activityData, setActivityData] = useState([]);
+    const [activityData, setActivityData] = useState<any[]>([]);
 
     useEffect(() => {
         fetchDashboardData();

@@ -7,8 +7,7 @@ import {
     Clock,
     ChevronRight,
     MessageSquare,
-    ThumbsUp,
-    LoaderIcon
+    ThumbsUp
 } from 'lucide-react';
 
 // Mock Data

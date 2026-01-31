@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 
 const HealthTrackerPage = () => {
     const [issue, setIssue] = useState('');
-    const [location, setLocation] = useState('RK Puram, New Delhi');
+    const [location] = useState('RK Puram, New Delhi');
     const [category] = useState('Waste Management – Garbage Collection');
     const [showResponse, setShowResponse] = useState(false);
 
