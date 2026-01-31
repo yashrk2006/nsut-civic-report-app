@@ -1,13 +1,8 @@
 import Layout from '../components/Layout';
-import { motion } from 'framer-motion';
 import {
     User,
-    Mail,
-    Phone,
-    Calendar,
     Award,
     Trophy,
-    Star,
     Zap,
     TrendingUp,
     Shield,

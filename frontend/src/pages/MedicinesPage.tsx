@@ -5,13 +5,10 @@ import {
     MapPin,
     CheckCircle,
     Clock,
-    AlertCircle,
     ChevronRight,
-    Filter,
-    ArrowUpRight,
-    Camera,
     MessageSquare,
-    ThumbsUp
+    ThumbsUp,
+    LoaderIcon
 } from 'lucide-react';
 
 // Mock Data

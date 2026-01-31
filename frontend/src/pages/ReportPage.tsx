@@ -23,8 +23,7 @@ import {
     EyeOff,
     Eye,
     Thermometer,
-    FileText,
-    ListFilter
+    FileText
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
@@ -242,7 +241,7 @@ const ReportPage = () => {
             {[1, 2, 3, 4, 5].map(step => (
                 <div key={step} className="flex flex-col items-center relative z-10">
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 ${step === currentStep ? 'bg-primary-600 text-white shadow-lg scale-110' :
-                            step < currentStep ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-400'
+                        step < currentStep ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-400'
                         }`}>
                         {step < currentStep ? <CheckCircle className="w-4 h-4" /> : step}
                     </div>
@@ -287,8 +286,8 @@ const ReportPage = () => {
                                         }}
                                         onDoubleClick={() => nextStep()}
                                         className={`p-4 rounded-2xl border-2 transition-all duration-200 flex flex-col items-center gap-3 text-center ${formData.category === cat.id
-                                                ? `${cat.border} ${cat.bg} ring-2 ring-primary-500 ring-offset-2`
-                                                : 'border-gray-100 bg-white hover:border-gray-200 hover:bg-gray-50'
+                                            ? `${cat.border} ${cat.bg} ring-2 ring-primary-500 ring-offset-2`
+                                            : 'border-gray-100 bg-white hover:border-gray-200 hover:bg-gray-50'
                                             }`}
                                     >
                                         <div className={`p-3 rounded-full bg-white shadow-sm ${cat.color}`}>
@@ -318,7 +317,7 @@ const ReportPage = () => {
                             </div>
 
                             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-                                {CATEGORIES.find(c => c.id === formData.category)?.subCategories.map((sub, idx) => (
+                                {CATEGORIES.find(c => c.id === formData.category)?.subCategories.map((sub) => (
                                     <button
                                         key={sub.id}
                                         onClick={() => setFormData(prev => ({ ...prev, subCategory: sub.id }))}
@@ -358,6 +357,7 @@ const ReportPage = () => {
                             </div>
 
                             <div className="h-80 w-full rounded-2xl overflow-hidden shadow-lg border-2 border-gray-100 relative group">
+                                {/* @ts-ignore */}
                                 <MapContainer center={mapCenter} zoom={15} className="h-full w-full">
                                     <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                                     {location && (
@@ -442,8 +442,8 @@ const ReportPage = () => {
                                                 key={level.id}
                                                 onClick={() => setFormData({ ...formData, severity: level.id })}
                                                 className={`py-2 rounded-lg text-xs font-bold transition-all ${formData.severity === level.id
-                                                        ? `${level.color} text-white shadow-md scale-105`
-                                                        : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+                                                    ? `${level.color} text-white shadow-md scale-105`
+                                                    : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
                                                     }`}
                                             >
                                                 {level.label}
