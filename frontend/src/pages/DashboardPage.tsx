@@ -190,6 +190,19 @@ const DashboardPage = () => {
                             </button>
 
                             <button
+                                onClick={() => navigate('/my-complaints')}
+                                className="w-full flex items-center gap-3 p-3 md:p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl hover:shadow-md transition-all group"
+                            >
+                                <div className="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <Clock className="w-5 h-5 text-white" />
+                                </div>
+                                <div className="text-left flex-1">
+                                    <div className="text-sm md:text-base font-semibold text-gray-900">Track My Complaints</div>
+                                    <div className="text-xs md:text-sm text-gray-600">View status updates</div>
+                                </div>
+                            </button>
+
+                            <button
                                 onClick={() => navigate('/report')}
                                 className="w-full flex items-center gap-3 p-3 md:p-4 bg-gradient-to-r from-green-50 to-green-100 rounded-xl hover:shadow-md transition-all group"
                             >

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
@@ -145,6 +146,8 @@ const SEVERITY_LEVELS = [
 ];
 
 const ReportPage = () => {
+    const navigate = useNavigate();
+
     // Form State
     const [currentStep, setCurrentStep] = useState(1);
     const [formData, setFormData] = useState({
@@ -566,16 +569,13 @@ const ReportPage = () => {
 
                             <div className="flex gap-3">
                                 <button
-                                    onClick={() => {
-                                        setFormData({ category: '', subCategory: '', description: '', severity: 'medium', isAnonymous: false, images: [] });
-                                        setCurrentStep(1);
-                                    }}
+                                    onClick={() => navigate('/home')}
                                     className="flex-1 py-4 rounded-xl bg-gray-100 font-bold text-gray-700 hover:bg-gray-200 transition-colors"
                                 >
                                     Home
                                 </button>
                                 <button
-                                    onClick={() => window.location.href = '/my-complaints'}
+                                    onClick={() => navigate('/my-complaints')}
                                     className="flex-1 py-4 rounded-xl bg-primary-600 font-bold text-white hover:bg-primary-700 shadow-lg shadow-primary-200 transition-all hover:scale-105"
                                 >
                                     Track Status
