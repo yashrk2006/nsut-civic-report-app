@@ -1,11 +1,13 @@
 {
     "buildCommand": "npm run build",
     "outputDirectory": "frontend/dist",
-    "cleanUrls": true,
-    "rewrites": [
+    "routes": [
         {
-            "source": "/((?!assets|manifest.json|icon-.*\\.png).*)",
-            "destination": "/index.html"
+            "handle": "filesystem"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
         }
     ],
     "headers": [
