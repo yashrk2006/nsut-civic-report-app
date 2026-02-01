@@ -7,6 +7,7 @@ export default defineConfig({
         react(),
         // VitePWA({...}) - Temporarily disabled for Vercel debugging
     ],
+    publicDir: 'public',
     server: {
         port: 5000
     }
